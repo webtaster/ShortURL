@@ -67,8 +67,9 @@ id=$(( $lastid + 2 + $RANDOM %$INTERVAL ))
 
 #
 # Convert the ID number to base 62.  Minimises link length.
-# The sed ensures that numbers presented to bc do not include
-# a leading zero (which bc would interpret as octal, and fail).
+# The sed ensures that numbers to index the BASH62 array do not include
+# a leading zero (which the shell interpret as octal, and fail, objecting to
+# values greater than 7).
 #
 BASE62=($(echo {0..9} {a..z} {A..Z}))
 
